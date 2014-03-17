@@ -1,4 +1,4 @@
-name             'sysctl'
+name             'sysctl2'
 maintainer       'Michael Morris'
 maintainer_email 'michael.m.morris@gmail.com'
 license          '3-clause BSD'

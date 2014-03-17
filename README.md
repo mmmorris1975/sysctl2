@@ -1,4 +1,4 @@
-sysctl Cookbook
+sysctl2 Cookbook
 ====================
 A cookbook to configure kernel parameters on a system.  It supports configuring files in /etc/sysctl.d, and in /etc/sysctl.conf directly (mainly to support RHEL/CentOS 5 & 6).
 

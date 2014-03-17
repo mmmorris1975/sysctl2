@@ -1,5 +1,5 @@
 #
-# Cookbook Name:: sysctl
+# Cookbook Name:: sysctl2
 # Recipe:: default
 #
 # Copyright 2014, Mike Morris
@@ -15,7 +15,7 @@ end
 
 template conf_file do
   source 'sysctl.conf.erb'
-  cookbook 'sysctl'
+  cookbook 'sysctl2'
   owner 'root'
   group 'root'
   mode  '0644'
