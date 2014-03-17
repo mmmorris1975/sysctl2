@@ -67,7 +67,8 @@ platforms.each { |i| i.each_pair do |p,v|
     end
 
     it 'does not run sysctl until triggered' do
-      expect(chef_run).to_not run_execute("update kernel params")
+       execute = chef_run.execute("update kernel params")
+       expect(execute).to do_nothing
     end
   end
 end }
