@@ -4,6 +4,7 @@ A cookbook to configure kernel parameters on a system.  It supports configuring 
 
 Requirements
 ------------
+
 Should support any linux platform, but has been tested successfully on:
 
   - rhel >= 5.0
@@ -13,43 +14,36 @@ Should support any linux platform, but has been tested successfully on:
 
 Attributes
 ----------
-#### sysctl::default
-<table>
-  <tr>
-    <th>Key</th>
-    <th>Type</th>
-    <th>Description</th>
-    <th>Default</th>
-  </tr>
-  <tr>
-    <td><tt>['sysctl']['conf_dir']</tt></td>
-    <td>String</td>
-    <td>The directory where the config file is located</td>
-    <td><tt>/etc/sysctl.d</tt></td>
-  </tr>
-  <tr>
-    <td><tt>['sysctl']['conf_file']</tt></td>
-    <td>String</td>
-    <td>The config file name</td>
-    <td><tt>999-chef-sysctl.conf</tt></td>
-  </tr>
-</table>
+
+#### sysctl2::default
+
+*  **['sysctl']['conf\_dir']**  
+    _Type:_ String  
+    _Description:_ The directory where the config file is located  
+    _Default:_ /etc/sysctl.d
+
+*  **['sysctl']['conf\_file']**  
+    _Type:_ String  
+    _Description:_ The config file name  
+    _Default:_ 999-chef-sysctl.conf
 
 Usage
 -----
-#### sysctl::default
+
+#### sysctl2::default
+
 Set attributes in the sysctl/params namespace to configure kernel parameters.  Example values:
 
     node.set['sysctl']['params']['kernel.sysrq'] = 0
     node.set['sysctl']['params']['net.ipv4.ip_local_port_range'] = '30000 65000'
 
-Then, just include `sysctl` in your node's `run_list`:
+Then, just include `sysctl2` in your node's `run_list`:
 
 ```json
 {
   "name":"my_node",
   "run_list": [
-    "recipe[sysctl]"
+    "recipe[sysctl2]"
   ]
 }
 ```
@@ -60,6 +54,6 @@ The default sysctl/conf\_file attribute value gives us a reasonable chance of be
 
 License and Authors
 -------------------
-Authors: Michael Morris
 
+Authors: Michael Morris  
 License: 3-clause BSD
