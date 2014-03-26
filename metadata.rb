@@ -11,17 +11,17 @@ version          '0.1.0'
 end
 
 attribute 'sysctl/conf_dir',
-  :display_name => 'Config Dir',
-  :description => 'The name of the directory containing the sysctl settings file',
-  :type => 'string',
-  :required => 'required',
-  :recipes => [ 'sysctl::default' ],
-  :default => '/etc/sysctl.d'
+          display_name: 'Config Dir',
+          description: 'The name of the directory containing the sysctl settings file',
+          type: 'string',
+          required: 'required',
+          recipes:  ['sysctl::default'],
+          default:  '/etc/sysctl.d'
 
 attribute 'sysctl/conf_file',
-  :display_name => 'Config File',
-  :description => 'The name of the file containing the sysctl settings',
-  :type => 'string',
-  :required => 'required',
-  :recipes => [ 'sysctl::default' ],
-  :default => '999-chef-sysctl.conf'
+          display_name: 'Config File',
+          description: 'The name of the file containing the sysctl settings',
+          type: 'string',
+          required: 'required',
+          recipes:  ['sysctl::default'],
+          default:  '999-chef-sysctl.conf'
