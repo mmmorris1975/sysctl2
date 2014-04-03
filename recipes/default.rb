@@ -18,7 +18,7 @@ template conf_file do
   cookbook 'sysctl2'
   owner 'root'
   group 'root'
-  mode  '0644'
+  mode '0644'
   variables params: node['sysctl']['params']
   notifies :run, 'execute[update kernel params]'
 end
