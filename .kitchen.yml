@@ -1,0 +1,63 @@
+---
+driver:
+  name: vagrant
+  customize:
+    memory: 512
+    cpuexecutioncap: 50
+
+provisioner:
+  name: chef_zero
+
+platforms:
+  - name: centos-5.10
+  - name: centos-6.5
+  - name: ubuntu-12.04
+  - name: ubuntu-13.10
+  - name: ubuntu-14.04
+  - name: fedora-18
+  - name: fedora-19
+  - name: fedora-20
+  - name: debian-6.0.9
+  - name: debian-7.2.0
+  - name: debian-7.4
+
+suites:
+  - name: default
+    run_list:
+      - recipe[sysctl2::default]
+    attributes:
+      sysctl:
+        params:
+          kernel.sysrq: 0
+          kernel.shmall: 1073741824
+          kernel.shmmax: 1073741824
+          kernel.shmmni: 4096
+          net.ipv4.ip_forward: 0
+          net.ipv4.ip_local_port_range: '30000 65000'
+    excludes:
+      - centos-5.10
+      - centos-6.5
+  - name: centos
+    run_list:
+      - recipe[sysctl2::default]
+    attributes:
+      sysctl:
+        conf_dir: '/etc'
+        conf_file: 'sysctl.conf'
+        params:
+          kernel.sysrq: 0
+          kernel.shmall: 1073741824
+          kernel.shmmax: 1073741824
+          kernel.shmmni: 4096
+          net.ipv4.ip_forward: 0
+          net.ipv4.ip_local_port_range: '30000 65000'
+    excludes:
+      - ubuntu-12.04
+      - ubuntu-13.10
+      - ubuntu-14.04
+      - fedora-18
+      - fedora-19
+      - fedora-20
+      - debian-6.0.9
+      - debian-7.2.0
+      - debian-7.4
