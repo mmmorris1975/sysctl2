@@ -10,6 +10,7 @@ group :test do
   gem 'knife-spork'
   gem 'rake'
   gem 'rubocop'
-  gem 'test-kitchen'
+  gem 'test-kitchen', '< 1.2.0'
   gem 'kitchen-vagrant'
+  gem 'vagrant-wrapper'
 end
