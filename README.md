@@ -4,6 +4,7 @@ A cookbook to configure kernel parameters on a system.  It supports configuring 
 
 Requirements
 ------------
+Ruby 1.9 or later
 
 Should support any linux platform, but has been tested successfully on:
 
