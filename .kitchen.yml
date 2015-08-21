@@ -8,12 +8,18 @@ driver:
 provisioner:
   name: chef_zero
 
+# Let's make it a policy that we'll keep no more than
+# 3 major revs of a given platform. That should fall
+# close to, or better than, the version support provided by
+# the distribution (ex. remove Centos 5 when Centos 8 is added)
+#
+# NOTE: when changing this list, make you you update the 'excludes'
+#  lists in the suites below!
 platforms:
   - name: centos-5.10
   - name: centos-6.5
   - name: centos-7.0
   - name: ubuntu-12.04
-  - name: ubuntu-13.10
   - name: ubuntu-14.04
   - name: fedora-19
   - name: fedora-20
@@ -54,11 +60,10 @@ suites:
           net.ipv4.ip_local_port_range: '30000 65000'
     excludes:
       - ubuntu-12.04
-      - ubuntu-13.10
       - ubuntu-14.04
-      - fedora-18
       - fedora-19
       - fedora-20
+      - fedora-21
       - debian-6.0.9
-      - debian-7.2.0
       - debian-7.4
+      - debian-8.0
